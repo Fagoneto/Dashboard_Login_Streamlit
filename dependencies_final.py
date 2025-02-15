@@ -30,7 +30,7 @@ def instance_cursor():
 def consulta(user):
     with instance_cursor() as cursor:
         query= '''
-                SELECT nome, usuario, senha 
+                SELECT nome, usuario, email, senha 
                 FROM REGISTROS
                 WHERE usuario = %s   
                 '''
@@ -48,13 +48,13 @@ def consulta_geral():
         request = cursor.fetchall()
         return request
 
-def add_registro(nome, user, senha):
+def add_registro(nome, user, email, senha):
     connection = psycopg2.connect(database=DATABASE, host=HOST, user=USERSERVER, password=PASSWORD, port=PORT)
     cursor = connection.cursor()
 
     query= f'''
         INSERT INTO REGISTROS VALUES
-        {nome, user, senha}
+        {nome, user, email, senha}
         ''' 
     cursor.execute(query)
     connection.commit()
@@ -72,6 +72,7 @@ def cria_tabela():
         CREATE TABLE REGISTROS (
             nome varchar(255),
             usuario varchar(255),
+            email varchar(255),
             senha varchar(255)
         )
         ''' 

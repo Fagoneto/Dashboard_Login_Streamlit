@@ -8,8 +8,8 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 
 # st.set_page_config()
-st.set_page_config(layout='wide', page_title="Painel dos Preços")
-st.title("Painel dos Preços")
+# st.set_page_config(layout='wide', page_title="Painel dos Preços")
+# st.title("Painel dos Preços")
 
 # Carregar os dados das lojas e dos produtos
 df_lojas = pd.read_excel('df_lojas.xlsx')
@@ -153,7 +153,7 @@ with col2:
             circle.add_child(popup)
             
             # Se o seletor estiver marcado, exibir o preço ao lado do círculo
-            if exibir_preco:
+            if exibir_preco_2:
                 preco_popup = f"<b>R${row['preco']:.2f}</b>"
                 folium.Marker(location=[row['lat'] - 0.01, row['long']],  # Ajuste na posição vertical
                             icon=folium.DivIcon(html=f"<div style='font-size: 12pt;'>{preco_popup}</div>")).add_to(mapa)  # Ajuste no tamanho da fonte

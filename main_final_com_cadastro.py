@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit_authenticator as stauth
 from dependencies_final import add_registro, consulta, consulta_geral, cria_tabela
 from time import sleep
+import os
 
 def main():
     try:
@@ -47,14 +48,14 @@ def login_form(authenticator):
         st.write(f'*{name} está logado!*')
         st.title('AREA DO DASHBOARD')
 
-        # import os
-        # # Caminho para o arquivo app.py
-        # app_path = os.path.join(os.path.dirname(__file__), 'app.py')
+        import os
+        # Caminho para o arquivo app.py
+        app_path = os.path.join(os.path.dirname(__file__), 'streamlit_map.py')
 
-        # # Executa o código do dashboard
-        # with open(app_path, 'r') as file:
-        #     code = file.read()
-        #     exec(code, globals())
+        # Executa o código do dashboard
+        with open(app_path, 'r') as file:
+            code = file.read()
+            exec(code, globals())
 
 
     elif authentication_status == False:

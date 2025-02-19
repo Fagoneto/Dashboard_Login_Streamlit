@@ -2,6 +2,7 @@ import psycopg2
 from dotenv import load_dotenv
 import os
 from contextlib import contextmanager
+import streamlit as st
 
 load_dotenv()
 
@@ -10,7 +11,15 @@ HOST = os.getenv("HOST")
 USERSERVER = os.getenv("USERSERVER")
 PASSWORD = os.getenv("PASSWORD")
 PORT = os.getenv("PORT")
+###
+DATABASE_URL = st.secrets["database"]["DATABASE_URL"]
 
+try:
+    connection = psycopg2.connect(DATABASE_URL)
+    print("✅ Conexão bem-sucedida com o Neon!")
+except Exception as e:
+    print("❌ Erro de conexão:", e)
+##
 # o "cursor" é um objeto que permite que você execute comandos SQL no banco de dados e recupere os resultados.
 #  Ele age como um ponteiro ou um marcador de posição dentro de uma transação ativa no banco de dados. 
 # O cursor permite que você envie consultas SQL para o banco de dados, recuperar os resultados dessas consultas e, em seguida, 

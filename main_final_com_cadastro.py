@@ -14,7 +14,7 @@ def main():
 
     registros = {'usernames': {}}
     for data in db_query:
-        registros['usernames'][data[1]] = {'name' : data[0], 'password' : data[3]}
+        registros['usernames'][data[1]] = {'name' : data[0], 'password' : data[4]}
 
     COOKIE_EXPIRY_DAYS = 30
     authenticator = stauth.Authenticate(

@@ -46,7 +46,8 @@ def confirmation_msg():
 
 
 def main():
-    st.title("Cadastro de Usuários")
+    st.write("Essa a ficha de controle dos usuários")
+
     usuario_form()
 
     # Exibir a tabela de cadastrados

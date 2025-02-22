@@ -76,7 +76,7 @@ def add_registro(nome, user, email, fone, senha):
         dbname="REGISTROS",  # Replace with your database name
         user="REGISTROS_owner",  # Replace with your username
         password="npg_VCo8vO3ydpZY",  # Replace with your password
-        port="5432"  # Default PostgreSQL port
+        port="5432",  # Default PostgreSQL port
         sslmode="require" 
         )
     cursor = connection.cursor()
@@ -87,7 +87,7 @@ def add_registro(nome, user, email, fone, senha):
     #     ''' 
     # cursor.execute(query)
     query = '''
-    INSERT INTO REGISTROS (nome, user, email, fone, senha)
+    INSERT INTO REGISTROS (nome, usuario, email, fone, senha)
     VALUES (%s, %s, %s, %s, %s)
     '''
     cursor.execute(query, (nome, user, email, fone, senha))
@@ -112,7 +112,7 @@ def cria_tabela():
     query= f'''
         CREATE TABLE REGISTROS (
             nome varchar(255),
-            usuario varchar(255),
+            "user" varchar(255),
             email varchar(255),
             fone varchar(255),
             senha varchar(255)

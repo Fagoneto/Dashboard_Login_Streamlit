@@ -66,7 +66,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     produtos_1 = st.selectbox(
-            "Escolha quantos produtos quiser", (list(df_precos['produto'].unique())))#, [df_precos['produto'][0]])#, [## colocar aqui os primeiros itens da lista]
+            "Escolha um produto", (list(df_precos['produto'].unique())))#, [df_precos['produto'][0]])#, [## colocar aqui os primeiros itens da lista]
     if not produtos_1:
         st.error("Por favor, escolha pelo menos um produto.")
     else:

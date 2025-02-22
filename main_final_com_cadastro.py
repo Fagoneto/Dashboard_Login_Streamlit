@@ -79,7 +79,14 @@ def confirmation_msg():
         st.warning('Nome de usuário já existe.')
         sleep(3)
     else:
-        add_registro(st.session_state.nome,st.session_state.user, hashed_password[0])
+        add_registro(
+            st.session_state.nome,
+            st.session_state.user,
+            st.session_state.email,  # Adicione esta linha
+            st.session_state.fone,   # Adicione esta linha
+            hashed_password[0]
+        )
+        
         st.success('Registro efetuado!')
         sleep(3)
 
@@ -88,6 +95,7 @@ def usuario_form():
         nome = st.text_input("Nome", key="nome")
         username = st.text_input("Usuário", key="user")
         email = st.text_input("E-mail", key="email")
+        fone = st.text_input("Fone", key="fone")
         password = st.text_input("Password", key="pswrd", type="password")
         confirm_password = st.text_input("Confirm Password", key="confirm_pswrd", type="password")
         submit = st.form_submit_button(
